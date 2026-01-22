@@ -20,15 +20,15 @@ public class Room {
     private String name;
 
     @Column(name="room_number")
-    private String number;
+    private String roomNumber;
 
     @Column(name="bed_info")
     private String bedInfo;
 
-    public Room(int id, String name, String number, String bedInfo) {
+    public Room(int id, String name, String roomNumber, String bedInfo) {
         this.id = id;
         this.name = name;
-        this.number = number;
+        this.roomNumber = roomNumber;
         this.bedInfo = bedInfo;
     }
 }
