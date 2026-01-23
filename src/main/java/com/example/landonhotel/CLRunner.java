@@ -29,10 +29,10 @@ public class CLRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        List<Room> rooms = this.roomRepository.findAll();
-//        Optional<Room> room = this.roomRepository.findByRoomNumberIgnoreCase("p1");
-//        System.out.println(room);
-//        rooms.forEach(System.out::println);
+        List<Room> rooms = this.roomRepository.findAll();
+        Optional<Room> room = this.roomRepository.findByRoomNumberIgnoreCase("p1");
+        System.out.println(room);
+        rooms.forEach(System.out::println);
 
         List<Guest> guests = this.guestRepository.findAll();
         Optional<Guest> guest = this.guestRepository.findGuestById(1);
@@ -40,7 +40,6 @@ public class CLRunner implements CommandLineRunner {
         guests.forEach(System.out::println);
 
         List<Reservation> reservations = this.reservationRepository.findAll();
-//        Optional<Reservation> reservation = this.reservationRepository.findByResDate(new Date(2023-1900, 7, 28));
         Optional<Reservation> reservation = this.reservationRepository.findByResDate(LocalDate.of(2023, 8, 28));
         System.out.println(reservation);
         reservations.forEach(System.out::println);
