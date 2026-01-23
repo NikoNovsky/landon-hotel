@@ -39,8 +39,9 @@ public class CLRunner implements CommandLineRunner {
         guests.forEach(System.out::println);
 
         List<Reservation> reservations = this.reservationRepository.findAll();
-        Optional<Reservation> reservation = this.reservationRepository.findByReservationDate(new Date(2023, 7, 28));
-        System.out.println(guest);
-        guests.forEach(System.out::println);
+        Optional<Reservation> reservation = this.reservationRepository.findByResDate(new Date(2023-1900, 7, 28));
+        System.out.println(new Date(2023-1900, 7, 28));
+        System.out.println(reservation);
+        reservations.forEach(System.out::println);
     }
 }

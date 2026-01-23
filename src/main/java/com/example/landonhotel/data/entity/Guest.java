@@ -13,7 +13,7 @@ public class Guest {
     @Id
     @Column(name = "guest_id")
     @GeneratedValue(strategy =  GenerationType.AUTO)
-    private long guestId;
+    private long id;
 
     @Column(name = "first_name")
     private String firstName;

@@ -7,5 +7,5 @@ import java.util.Date;
 import java.util.Optional;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
-    Optional<Reservation> findByReservationDate(Date date);
+    Optional<Reservation> findByResDate(Date resDate);
 }
