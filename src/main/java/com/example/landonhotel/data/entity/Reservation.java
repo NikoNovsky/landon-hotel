@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "reservations")
@@ -24,5 +24,5 @@ public class Reservation {
     private long guestId;
 
     @Column(name = "res_date")
-    private Date resDate;
+    private LocalDate resDate;
 }
