@@ -43,7 +43,6 @@ public class RoomReservationService {
             roomReservation.setRoomId(room.getId());
             roomReservation.setRoomName(room.getName());
             roomReservation.setRoomNumber(room.getRoomNumber());
-            roomReservation.setFirstName("Vacant");
             roomReservations.put(roomReservation.getRoomId(), roomReservation);
         });
         List<Reservation> reservations = this.reservationRepository.findByResDate(date);
