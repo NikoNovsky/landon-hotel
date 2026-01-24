@@ -12,8 +12,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,20 +32,20 @@ public class CLRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        List<Room> rooms = this.roomRepository.findAll();
-//        Optional<Room> room = this.roomRepository.findByRoomNumberIgnoreCase("p1");
-//        System.out.println(room);
-//        rooms.forEach(System.out::println);
-//
-//        List<Guest> guests = this.guestRepository.findAll();
-//        Optional<Guest> guest = this.guestRepository.findGuestById(1);
-//        System.out.println(guest);
-//        guests.forEach(System.out::println);
-//
-//        List<Reservation> reservations = this.reservationRepository.findAll();
-//        List<Reservation> reservation = this.reservationRepository.findByResDate(LocalDate.of(2023, 8, 28));
-//        System.out.println(reservation);
-//        reservations.forEach(System.out::println);
+        List<Room> rooms = this.roomRepository.findAll();
+        Optional<Room> room = this.roomRepository.findByRoomNumberIgnoreCase("p1");
+        System.out.println(room);
+        rooms.forEach(System.out::println);
+
+        List<Guest> guests = this.guestRepository.findAll();
+        Optional<Guest> guest = this.guestRepository.findGuestById(1);
+        System.out.println(guest);
+        guests.forEach(System.out::println);
+
+        List<Reservation> reservations = this.reservationRepository.findAll();
+        List<Reservation> reservation = this.reservationRepository.findByResDate(LocalDate.of(2023, 8, 28));
+        System.out.println(reservation);
+        reservations.forEach(System.out::println);
 
         List<RoomReservation> roomReservations = this.roomReservationService.getRoomReservationsForDate("2023-08-28");
         roomReservations.forEach(System.out::println);
