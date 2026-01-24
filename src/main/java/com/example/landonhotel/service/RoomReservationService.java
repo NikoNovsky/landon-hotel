@@ -45,7 +45,7 @@ public class RoomReservationService {
             roomReservation.setRoomNumber(room.getRoomNumber());
             roomReservations.put(roomReservation.getRoomId(), roomReservation);
         });
-        List<Reservation> reservations = this.reservationRepository.findByReservationDate(date);
+        List<Reservation> reservations = this.reservationRepository.findByResDate(date);
         reservations.forEach(reservation -> {
             RoomReservation roomReservation = roomReservations.get(reservation.getRoomId());
             roomReservation.setReservationId(reservation.getId());
