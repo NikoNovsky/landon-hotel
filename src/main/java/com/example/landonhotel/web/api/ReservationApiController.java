@@ -49,6 +49,7 @@ public class ReservationApiController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.RESET_CONTENT)
     public void deleteReservationById(@PathVariable("id") long id) {
         this.reservationRepository.deleteById(id);
     }
