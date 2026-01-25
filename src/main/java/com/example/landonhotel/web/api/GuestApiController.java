@@ -27,7 +27,7 @@ public class GuestApiController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Guest createGuest(Guest guest) {
+    public Guest createGuest(@RequestBody Guest guest) {
         return this.guestRepository.save(guest);
     }
 
