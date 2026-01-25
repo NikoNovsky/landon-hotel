@@ -24,7 +24,7 @@ public class ReservationApiController {
 
     @GetMapping
     public List<Reservation> getAllReservations(@RequestParam (value = "date", required = false) String date) {
-        if (StringUtils.isNotEmpty(date)) {
+        if (StringUtils.isNotBlank(date)) {
             return this.reservationRepository.findByResDate(LocalDate.parse(date));
         }
         return this.reservationRepository.findAll();
