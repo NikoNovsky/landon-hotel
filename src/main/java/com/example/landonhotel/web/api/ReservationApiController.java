@@ -1,4 +1,54 @@
 package com.example.landonhotel.web.api;
 
+import com.example.landonhotel.data.entity.Reservation;
+import com.example.landonhotel.data.repository.ReservationRepository;
+import com.example.landonhotel.web.exception.BadRequestException;
+import com.example.landonhotel.web.exception.NotFoundException;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
 public class ReservationApiController {
+
+    private final ReservationRepository reservationRepository;
+
+    public ReservationApiController(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
+
+    @GetMapping
+    public List<Reservation> getAllReservations() {
+        return this.reservationRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Reservation getReservationById(@PathVariable(name = "id") long id) {
+        Optional<Reservation> reservation = this.reservationRepository.findById(id);
+        if (reservation.isEmpty()) {
+            throw new NotFoundException("Reservation not found with id " + id);
+        }
+        return reservation.get();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation createReservation(@RequestBody Reservation reservation) {
+        return this.reservationRepository.save(reservation);
+    }
+
+    @PutMapping("/{id}")
+    public Reservation updateReservation(@RequestBody Reservation reservation, @PathVariable("id") long id) {
+        if (id != reservation.getId()) {
+            throw new BadRequestException("reservation id doesn't match with body");
+        }
+        return this.reservationRepository.save(reservation);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteReservationById(@PathVariable("id") long id) {
+        this.reservationRepository.deleteById(id);
+    }
 }
