@@ -43,6 +43,7 @@ public class RoomApiController {
 //    moje rozwiązanie - jest gorsze od drugiego, bo zapisuję tylko konkrente pola, a nie cały obiekt
 //    metoda PUT zapisuje cały obiekt (pokazać odpowiednie pola użytkownikowi i wszystkie się zapiszą)
 //    jak dojdzie nowe pole, to mniej grzebania w backendzie (ew. tylko na froncie pokazujesz pole, a PUT i tak je zapisze do modelu)
+//    @PutMapping("/{id}")
 //    public Room updateRoom(@PathVariable("id") long id, @RequestBody Room room) {
 //        Optional<Room> oldRoom = this.roomRepository.findById(id);
 //        if (oldRoom.isEmpty()) {
@@ -54,6 +55,7 @@ public class RoomApiController {
 //    }
 
 //    rozwiązanie wg instruktora
+    @PutMapping("/{id}")
     public Room updateRoom(@PathVariable("id") long id, @RequestBody Room room) {
       if (id != room.getId()) {
           throw new BadRequestException("id on path does not match body");
