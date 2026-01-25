@@ -4,9 +4,11 @@ import com.example.landonhotel.data.entity.Reservation;
 import com.example.landonhotel.data.repository.ReservationRepository;
 import com.example.landonhotel.web.exception.BadRequestException;
 import com.example.landonhotel.web.exception.NotFoundException;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +23,10 @@ public class ReservationApiController {
     }
 
     @GetMapping
-    public List<Reservation> getAllReservations() {
+    public List<Reservation> getAllReservations(@RequestParam (value = "date", required = false) String date) {
+        if (StringUtils.isNotEmpty(date)) {
+            return this.reservationRepository.findByResDate(LocalDate.parse(date));
+        }
         return this.reservationRepository.findAll();
     }
 
