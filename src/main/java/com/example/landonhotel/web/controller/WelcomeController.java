@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class WelcomeController {
 
     @GetMapping(produces = MediaType.TEXT_HTML_VALUE)
-//    @ResponseBody
+//    @ResponseBody - those tag makes string return, not a .html file name like now!
     public String getWelcome(@RequestParam(value = "name", required = false) String name, Model model) {
         String greeting = "Welcome ";
         greeting += StringUtils.isNotBlank(name) ? name : "guest";
