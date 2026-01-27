@@ -28,6 +28,7 @@ public class RoomApiController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Room createRoom(@RequestBody Room room) {
+        System.out.println(room);
         return this.roomRepository.save(room);
     }
 
