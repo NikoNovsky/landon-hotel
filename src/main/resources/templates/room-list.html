@@ -53,7 +53,7 @@
 
     bootstrapScript.onload = () => {
         document.getElementById("loadRooms").addEventListener("click", () => {
-            fetch("/rooms/list")
+            fetch("/api/rooms")
                 .then(res => res.json())
                 .then(data => {
                     const tbody = document.getElementById("tbody");

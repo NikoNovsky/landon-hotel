@@ -19,12 +19,6 @@ public class RoomController {
         this.roomRepository = roomRepository;
     }
 
-    @GetMapping("/list")
-    @ResponseBody
-    public List<Room> getRooms() {
-        return roomRepository.findAll();
-    }
-
     @GetMapping
     public String loadPage() {
         return "room-list";
